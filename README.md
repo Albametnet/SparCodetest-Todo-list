@@ -36,6 +36,7 @@ _To do this project it is necessary to know or investigate about:_
 
 Fist of all you should download de project from github.\
 And then you can run the app in the development mode by running the following script in the project directory\
+### `yarn install`
 ### `yarn start`
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser. 
 
