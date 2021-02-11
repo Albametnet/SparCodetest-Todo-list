@@ -22,14 +22,14 @@ Once inside it shows a bar with a button to create new tasks and a list of tasks
 
 _To do this project it is necessary to know or investigate about:_
 
-* [React](http://www.dropwizard.io/1.0.2/docs/) - El framework web usado
-* [Context Api]()
-* [React Hooks]() 
-* [JWT]() 
-* [localStorage]()
-* [sessionStorage]()
-* [cookies]()
-* [Sass]() 
+* React - El framework web usado
+* Context Api
+* React Hooks
+* JWT
+* localStorage
+* sessionStorage
+* cookies
+* Sass 
 
 
 ## How to make it work in your machine  🚀
