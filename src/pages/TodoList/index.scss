@@ -1,0 +1,40 @@
+.todo__list {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  margin: 0;
+  padding: 6.25rem 12.5rem;
+}
+
+h1 {
+  color: white;
+  font-weight: 100;
+  letter-spacing: 0.125rem;
+  margin: 3.125rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.todo__list-edition {
+  width: 62.5rem;
+}
+
+@media all and (max-width: 1200px) {
+  .todo__list {
+    padding: 3.125rem 6.25rem;
+  }
+
+  .todo__list-edition {
+    width: 37.5rem;
+  }
+}
+
+@media all and (max-width: 768px) {
+  .todo__list {
+    padding: 1.563rem 3.125rem;
+  }
+  .todo__list-edition {
+    width: 15.63rem;
+  }
+}

@@ -4,14 +4,13 @@
 
     export const DataProvider = (props) => {
         const [todos, setTodos] = useState([])
-       // para que se guarde el valor de los ultimos todos que habia en ls
         useEffect(()=>{
-            const todoStore= JSON.parse(localStorage.getItem('todoStore'))
+            const todoStore= JSON.parse(sessionStorage.getItem('todoStore'))
             if(todoStore) setTodos(todoStore)
         }, [])
 
         useEffect(()=>{
-            localStorage.setItem('todoStore', JSON.stringify(todos))
+            sessionStorage.setItem('todoStore', JSON.stringify(todos))
         }, [todos])
 
         

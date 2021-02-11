@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
-import ListItem from './ListItem';
-import { DataContext } from './DataProvider';
+import ListItem from '../ListItem';
+import { DataContext } from '../DataProvider';
+import './index.scss'
 
 export default function List() {
   const [todos, setTodos] = useContext(DataContext);
-  // console.log (todos); //para comprobar que el estado del context esta llegando tal y como lo hemos creado en el context
 
   const switchComplete =id =>{
     const newTodos= [...todos]
@@ -26,7 +26,7 @@ export default function List() {
     setTodos(newTodos)
   }
   return (
-    <ul>
+    <ul className="list" >
       {
         todos.map((todo, index) => (
           <ListItem todo={todo} key={index} id= {index} checkComplete= {switchComplete} handleEditTodos= {handleEditTodos}

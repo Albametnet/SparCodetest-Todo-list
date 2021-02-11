@@ -1,5 +1,7 @@
 import React, { useState, useContext, useRef, useEffect } from 'react';
-import { DataContext } from './DataProvider';
+import { DataContext } from '../DataProvider';
+import './index.scss'
+
 
 export default function FormInput() {
   const [todos, setTodos] = useContext(DataContext);
@@ -11,8 +13,6 @@ export default function FormInput() {
     setTodos([...todos, {name:todoName, complete:false}]) 
     setTodoName('');
     todoInput.current.focus();
-   // aqui lo que hace en el submit es coger todos los todos anteriores y 
-   //añadirle uno con el nombre del value del input y sin completar y lo vuelve a dejar vacio el input
   }
 
   useEffect(()=>{
@@ -21,9 +21,9 @@ export default function FormInput() {
   }, [] )
 
   return (
-    <form autoComplete="off" onSubmit= {addTodo}>
+    <form className="form__bar" autoComplete="off" onSubmit= {addTodo}>
       <input type="text" name="text" id="todos" ref= {todoInput}
-        required placeholder="Whats need to be done?" value={todoName}
+        required placeholder="Introduce one task" data-testid="input" value={todoName}
         onChange={e => setTodoName(e.target.value.toLowerCase())}
       />
       <button type="submit">Create</button>

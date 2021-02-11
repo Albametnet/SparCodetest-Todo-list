@@ -1,7 +1,9 @@
-import React, { useEffect, useContext, useState } from 'react';
-import { DataContext } from './DataProvider';
+import React, { useContext, useState } from 'react';
+import { DataContext } from '../DataProvider';
+import './index.scss'
 
-export default function Footer() {
+
+export default function Footer({ onSetToken }) {
   const [checkAll, setCheckAll] = useState(false)
   const [todos, setTodos] = useContext(DataContext);
 
@@ -14,29 +16,33 @@ export default function Footer() {
     setCheckAll(!checkAll)
   }
 
-  const newTodosComplete =() => {
+  const newTodosComplete = () => {
     return todos.filter(todo => todo.complete === false
     )
   }
 
   const deleteTodo = () => {
-    
     setTodos(newTodosComplete())
     setCheckAll(false)
+  }
+
+  const onLogOut = () => {
+    onSetToken("")
+    sessionStorage.removeItem('todoStore');
   }
 
   return (
     <>
       {
-        todos.length === 0 ? <h2>Great. We have nothing to do</h2>
+        todos.length === 0 ? <h2 data-testid="notodos">Great. We have nothing to do</h2>
           :
           <div className="row">
             <label htmlFor="all">
               <input type="checkbox" name="all" id="all" onChange={handleCheckAll} checked={checkAll} />
-              ALL
+              <p className="row__name">All</p>
+              <p className= "row__items" data-testid="todoCount">YOU HAVE {newTodosComplete().length} TODOS</p>
             </label>
-            <p>You have {newTodosComplete().length} todo</p>
-            <button id="delete" onClick={deleteTodo} >Delete</button>
+            <button className="row__items-delete-button" id="delete" onClick={deleteTodo} >Delete</button>
           </div>
       }
     </>
